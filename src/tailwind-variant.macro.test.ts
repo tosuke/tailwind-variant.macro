@@ -107,5 +107,16 @@ pluginTester({
         }
       `,
     },
+    "nested call in constant": {
+      code: `
+        ${tw}
+        const styles = tw.md("ring");
+        tw(tw.focus(styles), tw.hover(styles));
+      `,
+      output: `
+        const styles = "md:ring";
+        ("md:focus:ring md:hover:ring");
+      `,
+    },
   },
 });

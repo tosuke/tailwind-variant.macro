@@ -1,11 +1,12 @@
 import path from "path";
 import fs from "fs";
+import type { TailwindConfig } from "tailwindcss/tailwind-config";
 import resolveConfig from "tailwindcss/resolveConfig";
 import { createMacro } from "babel-plugin-macros";
 import type * as T from "@babel/types";
 import type { NodePath } from "@babel/traverse";
+import { Context } from "./context";
 import { createError } from "./createError";
-import type { TailwindConfig } from "tailwindcss/tailwind-config";
 import { addVariants } from "./addVariants";
 
 function assertIdentifier(
@@ -20,13 +21,19 @@ function getValueFromTemplateElement(
   return templateElement.value.cooked ?? templateElement.value.raw;
 }
 
-function getStringValue(expr: NodePath): string | undefined {
+function getStringValue(ctx: Context, expr: NodePath): string | undefined {
+  if (expr.isCallExpression() || expr.isTaggedTemplateExpression()) {
+    const ref = ctx.refs.find((r) => expr.isAncestor(r));
+    if (ref == null) return;
+    transformRef(ctx, ref);
+  }
+
   if (expr.isStringLiteral()) {
     return expr.node.value;
   }
   if (expr.isTemplateLiteral()) {
     const expressions = expr.get("expressions");
-    const strings = expressions.map(getStringValue);
+    const strings = expressions.map((e) => getStringValue(ctx, e));
     if (!strings.every((x: unknown): x is string => x != null)) {
       return undefined;
     }
@@ -54,13 +61,13 @@ function getStringValue(expr: NodePath): string | undefined {
     const init = decl.get("init");
     if (!init.isExpression()) return;
 
-    return getStringValue(init);
+    return getStringValue(ctx, init);
   }
   return undefined;
 }
 
 function getTwCallOrTaggedTemplateExpr(
-  name: string,
+  ctx: Context,
   path: NodePath,
   variants: string[]
 ): Readonly<{
@@ -77,40 +84,40 @@ function getTwCallOrTaggedTemplateExpr(
     const property = path.get("property");
     if (property.isIdentifier()) {
       const variant = property.node.name;
-      return getTwCallOrTaggedTemplateExpr(name, path.parentPath, [
+      return getTwCallOrTaggedTemplateExpr(ctx, path.parentPath, [
         ...variants,
         variant,
       ]);
     }
-    const variant = getStringValue(property);
+    const variant = getStringValue(ctx, property);
     if (variant != null) {
-      return getTwCallOrTaggedTemplateExpr(name, path.parentPath, [
+      return getTwCallOrTaggedTemplateExpr(ctx, path.parentPath, [
         ...variants,
         variant,
       ]);
     }
     throw createError(
       property,
-      `Member access of ${name} must be a compile time expression`
+      `Member access of ${ctx.name} must be a compile time expression`
     );
   }
   throw createError(
     path,
-    `${name} is only allowed in a call or tagged template expression`
+    `${ctx.name} is only allowed in a call or tagged template expression`
   );
 }
 
 function collectParamsFromCallExpr(
-  name: string,
+  ctx: Context,
   callExpr: NodePath<T.CallExpression>
 ) {
   const args = callExpr.get("arguments");
   const params = args.map((arg) => {
-    const param = getStringValue(arg);
+    const param = getStringValue(ctx, arg);
     if (param == null) {
       throw createError(
         arg,
-        `${name}() macro only accepts compile time parameters`
+        `${ctx.name}() macro only accepts compile time parameters`
       );
     }
     return param;
@@ -120,31 +127,31 @@ function collectParamsFromCallExpr(
 }
 
 function collectParamsFromTaggedTemplateExpr(
-  name: string,
+  ctx: Context,
   taggedTemplateExpr: NodePath<T.TaggedTemplateExpression>
 ) {
   const quasi = taggedTemplateExpr.get("quasi");
-  const param = getStringValue(quasi);
+  const param = getStringValue(ctx, quasi);
   if (param == null) {
     throw createError(
       quasi,
-      `${name}\`\` macro only accepts compile time values`
+      `${ctx.name}\`\` macro only accepts compile time values`
     );
   }
   return [param];
 }
 
 function collectParams(
-  name: string,
+  ctx: Context,
   callOrTaggedTemplateExpr: NodePath<
     T.CallExpression | T.TaggedTemplateExpression
   >
 ): string[] {
   if (callOrTaggedTemplateExpr.isCallExpression()) {
-    return collectParamsFromCallExpr(name, callOrTaggedTemplateExpr);
+    return collectParamsFromCallExpr(ctx, callOrTaggedTemplateExpr);
   }
   if (callOrTaggedTemplateExpr.isTaggedTemplateExpression()) {
-    return collectParamsFromTaggedTemplateExpr(name, callOrTaggedTemplateExpr);
+    return collectParamsFromTaggedTemplateExpr(ctx, callOrTaggedTemplateExpr);
   }
   throw new Error("unreachable");
 }
@@ -158,6 +165,29 @@ function loadTailwindConfig(sourceRoot: string, configFile: string) {
   }
 }
 
+function transformRef(baseCtx: Omit<Context, "name">, ref: NodePath) {
+  if (baseCtx.transformedRef.has(ref)) return;
+
+  assertIdentifier(ref);
+  const name = ref.node.name;
+  const ctx: Context = { ...baseCtx, name };
+  const { t } = ctx;
+
+  const { expr, variants } = getTwCallOrTaggedTemplateExpr(
+    ctx,
+    ref.parentPath,
+    []
+  );
+
+  const params = collectParams(ctx, expr);
+
+  const transpiled = addVariants(ctx, variants, params);
+
+  expr.replaceWith(t.stringLiteral(transpiled));
+
+  ctx.transformedRef.add(ref);
+}
+
 export default createMacro(
   ({ references, state, config, babel: { types: t } }) => {
     const configFile =
@@ -167,22 +197,16 @@ export default createMacro(
     const sourceRoot = state.file.opts.sourceRoot || ".";
     const tailwindConfig = loadTailwindConfig(sourceRoot, configFile);
 
-    // reverse nodes for nested call
-    for (const ref of references["tw"].reverse()) {
-      assertIdentifier(ref);
-      const name = ref.node.name;
+    const refs = references["tw"] ?? [];
+    const baseCtx = {
+      t,
+      tailwindConfig,
+      refs,
+      transformedRef: new WeakSet<NodePath>(),
+    } as const;
 
-      const { expr, variants } = getTwCallOrTaggedTemplateExpr(
-        name,
-        ref.parentPath,
-        []
-      );
-
-      const params = collectParams(name, expr);
-
-      const transpiled = addVariants(tailwindConfig, variants, params);
-
-      expr.replaceWith(t.stringLiteral(transpiled));
+    for (const ref of refs) {
+      transformRef(baseCtx, ref);
     }
   }
 );
