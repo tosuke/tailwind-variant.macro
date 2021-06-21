@@ -68,10 +68,43 @@ pluginTester({
     "tagged template literal": {
       code: `
         ${tw}
-        tw.hover\`ring\`
+        tw.hover\`ring\`;
       `,
       output: `
         "hover:ring";
+      `,
+    },
+    "overlapped variants": {
+      code: `
+        ${tw}
+        tw.hover("text-opacity-50 md:hover:ring");
+      `,
+      output: `
+        "hover:text-opacity-50 md:hover:ring";
+      `,
+    },
+    screen: {
+      code: `
+        ${tw}
+        tw.sm("md:ring");
+      `,
+      output: `
+        "sm:ring";
+      `,
+    },
+    "constant in module": {
+      code: `
+        ${tw}
+        const styles = "ring";
+        {
+          tw(styles);
+        }
+      `,
+      output: `
+        const styles = "ring";
+        {
+          ("ring");
+        }
       `,
     },
   },

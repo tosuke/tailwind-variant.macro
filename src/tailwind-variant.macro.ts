@@ -1,7 +1,12 @@
+import path from "path";
+import fs from "fs";
+import resolveConfig from "tailwindcss/resolveConfig";
 import { createMacro } from "babel-plugin-macros";
 import type * as T from "@babel/types";
 import type { NodePath } from "@babel/traverse";
 import { createError } from "./createError";
+import type { TailwindConfig } from "tailwindcss/tailwind-config";
+import { addVariants } from "./addVariants";
 
 function assertIdentifier(
   nodePath: NodePath
@@ -33,6 +38,23 @@ function getStringValue(expr: NodePath): string | undefined {
       result += getValueFromTemplateElement(quasis[i + 1]);
     }
     return result;
+  }
+  if (expr.isIdentifier()) {
+    const name = expr.node.name;
+
+    const binding = expr.scope.getBinding(name);
+    if (binding == null || binding.kind !== "const") return;
+
+    const decl = binding.path;
+    if (!decl.isVariableDeclarator()) return;
+
+    const id = decl.get("id");
+    if (!id.isIdentifier()) return;
+
+    const init = decl.get("init");
+    if (!init.isExpression()) return;
+
+    return getStringValue(init);
   }
   return undefined;
 }
@@ -127,41 +149,40 @@ function collectParams(
   throw new Error("unreachable");
 }
 
-function transpileTailwindUtilities(
-  variants: readonly string[],
-  params: readonly string[]
-): string {
-  const prefix =
-    " " + variants.reduce((pre, variant) => pre + variant + ":", "");
-  let result = "";
-  for (const param of params) {
-    for (const value of param.split(/\s+/)) {
-      result += prefix;
-      result += value;
-    }
+function loadTailwindConfig(sourceRoot: string, configFile: string) {
+  const configPath = path.resolve(sourceRoot, configFile);
+  if (fs.existsSync(configPath)) {
+    return resolveConfig(require(configPath));
+  } else {
+    return resolveConfig({} as TailwindConfig);
   }
-  if (result.length > 0) {
-    result = result.slice(1);
-  }
-  return result;
 }
 
-export default createMacro(({ references, babel: { types: t } }) => {
-  // reverse nodes for nested call
-  for (const ref of references["tw"].reverse()) {
-    assertIdentifier(ref);
-    const name = ref.node.name;
+export default createMacro(
+  ({ references, state, config, babel: { types: t } }) => {
+    const configFile =
+      typeof config?.config === "string"
+        ? config?.config
+        : "tailwind.config.js";
+    const sourceRoot = state.file.opts.sourceRoot || ".";
+    const tailwindConfig = loadTailwindConfig(sourceRoot, configFile);
 
-    const { expr, variants } = getTwCallOrTaggedTemplateExpr(
-      name,
-      ref.parentPath,
-      []
-    );
+    // reverse nodes for nested call
+    for (const ref of references["tw"].reverse()) {
+      assertIdentifier(ref);
+      const name = ref.node.name;
 
-    const params = collectParams(name, expr);
+      const { expr, variants } = getTwCallOrTaggedTemplateExpr(
+        name,
+        ref.parentPath,
+        []
+      );
 
-    const transpiled = transpileTailwindUtilities(variants, params);
+      const params = collectParams(name, expr);
 
-    expr.replaceWith(t.stringLiteral(transpiled));
+      const transpiled = addVariants(tailwindConfig, variants, params);
+
+      expr.replaceWith(t.stringLiteral(transpiled));
+    }
   }
-});
+);
