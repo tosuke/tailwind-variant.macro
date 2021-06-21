@@ -56,5 +56,23 @@ pluginTester({
 				"md:hover:ring";
 			`,
     },
+    nested: {
+      code: `
+        ${tw}
+        tw.md(tw.hover("ring"));
+      `,
+      output: `
+        "md:hover:ring";
+      `,
+    },
+    "tagged template literal": {
+      code: `
+        ${tw}
+        tw.hover\`ring\`
+      `,
+      output: `
+        "hover:ring";
+      `,
+    },
   },
 });
