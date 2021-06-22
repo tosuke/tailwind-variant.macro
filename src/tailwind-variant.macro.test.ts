@@ -92,6 +92,15 @@ pluginTester({
         "sm:ring";
       `,
     },
+    dark: {
+      code: `
+        ${tw}
+        tw.hover(tw.dark("ring"));
+      `,
+      output: `
+        "dark:hover:ring";
+      `,
+    },
     "constant in module": {
       code: `
         ${tw}

@@ -7,7 +7,7 @@ export function addVariants(
 ) {
   const sep = config.separator;
   const screens = { ...config.theme.screens };
-  const { screen, variants } = normalizeVariants(screens, inputVariants);
+  const { screen, dark, variants } = normalizeVariants(screens, inputVariants);
 
   let result = "";
   for (const param of params) {
@@ -15,10 +15,14 @@ export function addVariants(
       const {
         className,
         screen: itemScreen,
+        dark: itemDark,
         variants: itemVariants,
       } = parseItem(screens, sep, item);
       if (screen != null || itemScreen != null) {
         result += (screen || itemScreen) + sep;
+      }
+      if (dark || itemDark) {
+        result += "dark" + sep;
       }
       for (const variant of variants) {
         if (itemVariants.find((v) => v === variant)) continue;
@@ -41,11 +45,14 @@ function normalizeVariants(
   inputVariants: readonly string[]
 ) {
   let screen: string | undefined;
+  let dark: boolean = false;
   const variants: string[] = [];
 
   for (const variant of inputVariants) {
     if (variant in screens) {
       screen = variant;
+    } else if (variant === "dark") {
+      dark = true;
     } else {
       // camel case -> kebab case
       const normalized = variant.replace(
@@ -56,7 +63,7 @@ function normalizeVariants(
     }
   }
 
-  return { screen, variants } as const;
+  return { screen, dark, variants } as const;
 }
 
 function parseItem(
@@ -65,6 +72,7 @@ function parseItem(
   item: string
 ) {
   let screen: string | undefined;
+  let dark: boolean = false;
   const variants: string[] = [];
 
   const parsed = item.split(sep);
@@ -73,6 +81,8 @@ function parseItem(
   for (const variant of parsed) {
     if (variant in screens) {
       screen = variant;
+    } else if (variant === "dark") {
+      dark = true;
     } else {
       variants.push(variant);
     }
@@ -81,6 +91,7 @@ function parseItem(
   return {
     className,
     screen,
+    dark,
     variants,
   } as const;
 }
