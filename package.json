@@ -1,6 +1,6 @@
 {
   "name": "tailwind-variant.macro",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Babel Macro that apply screen / variant to multiple Tailwind utility classes",
   "license": "MIT",
   "main": "index.js",
