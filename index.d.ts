@@ -2,8 +2,14 @@ import type { Variant as TailwindVariant } from "tailwindcss/tailwind-config";
 
 type Screen = "sm" | "md" | "lg" | "xl" | "2xl";
 
+type Camel<S extends string> = S extends `${infer S1}-${infer S2}`
+  ? `${Camel<S1>}${Capitalize<Camel<S2>>}`
+  : S;
+
 type RawVariant =
   | TailwindVariant
+  | "motion-safe"
+  | "motion-reduce"
   | "before"
   | "after"
   | "first-letter"
@@ -27,7 +33,9 @@ type RawVariant =
 type Variant = RawVariant | `peer-${RawVariant}`;
 
 interface TailwindVariantFnBase
-  extends Readonly<Record<Screen | Variant, TailwindVariantFn>> {
+  extends Readonly<
+    Record<Screen | Variant | Camel<Variant>, TailwindVariantFn>
+  > {
   (...args: string[]): string;
 }
 

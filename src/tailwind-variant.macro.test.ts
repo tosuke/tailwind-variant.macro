@@ -118,5 +118,14 @@ pluginTester({
         ("md:focus:ring md:hover:ring");
       `,
     },
+    "camel case variants": {
+      code: `
+        ${tw}
+        tw.focusVisible("ring");
+      `,
+      output: `
+        "focus-visible:ring";
+      `,
+    },
   },
 });

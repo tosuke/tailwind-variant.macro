@@ -48,7 +48,12 @@ function normalizeVariants(
     if (variant in screens) {
       screen = variant;
     } else {
-      variants.push(variant);
+      // camel case -> kebab case
+      const normalized = variant.replace(
+        /[A-Z]/g,
+        (substr) => `-${substr.toLowerCase()}`
+      );
+      variants.push(normalized);
     }
   }
 
