@@ -1,4 +1,3 @@
-import type { TailwindConfig } from "tailwindcss/tailwind-config";
 import { Context } from "./context";
 
 export function addVariants(
