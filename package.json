@@ -1,7 +1,7 @@
 {
   "name": "tailwind-variant.macro",
   "version": "0.0.0",
-  "description": "",
+  "description": "A Babel Macro that apply screen / variant to multiple Tailwind utility classes",
   "license": "MIT",
   "main": "index.js",
   "types": "index.d.ts",
@@ -11,7 +11,9 @@
     "index.d.ts"
   ],
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.build.json"
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
