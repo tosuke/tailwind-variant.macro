@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+    types: ["opened"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Yarn Cache
+        uses: actions/cache@v2
+        with:
+          path: ".yarn/cache"
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Packages
+        run: yarn install --immutable
+      - name: Check Types
+        run: yarn typecheck
+      - name: Test
+        run: yarn test
