@@ -13,5 +13,5 @@ const className = tw.disabled`cursor-not-allowed opacity-50`;
 This code is transpiled into:
 
 ```javascript
-const className = "disabled:cursor-not-allowed opacity-50";
+const className = "disabled:cursor-not-allowed disabled:opacity-50";
 ```
