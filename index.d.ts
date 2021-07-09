@@ -37,6 +37,7 @@ interface TailwindVariantFnBase
     Record<Screen | Variant | Camel<Variant>, TailwindVariantFn>
   > {
   (...args: string[]): string;
+  (template: TemplateStringsArray, ...params: string[]): string;
 }
 
 export interface TailwindVariantFn extends TailwindVariantFnBase {}
