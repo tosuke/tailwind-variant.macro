@@ -830,7 +830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:*, @types/babel__core@npm:7.1.14, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
+"@types/babel__core@npm:*, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
   version: 7.1.14
   resolution: "@types/babel__core@npm:7.1.14"
   dependencies:
@@ -840,6 +840,19 @@ __metadata:
     "@types/babel__template": "*"
     "@types/babel__traverse": "*"
   checksum: e0212770e1cd520b8ad241642e9f99ef20b5c609c157ffe154c42e136c85f3c3f598ad7bfd452fda8abb304c483d6bce92de0b8ed0612f9f1c57b6c4a18da7b3
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:7.1.15":
+  version: 7.1.15
+  resolution: "@types/babel__core@npm:7.1.15"
+  dependencies:
+    "@babel/parser": ^7.1.0
+    "@babel/types": ^7.0.0
+    "@types/babel__generator": "*"
+    "@types/babel__template": "*"
+    "@types/babel__traverse": "*"
+  checksum: a9e93975a647b2037c624abffab43bdfa434eb3ffee343a94d649d44f802281ffd6044b8bcfe0b8e4a47d9c1759d4b6e6745b540cc8793d504f805adae9fcd52
   languageName: node
   linkType: hard
 
@@ -5221,7 +5234,7 @@ __metadata:
     "@babel/types": 7.14.5
     "@types/babel-plugin-macros": 2.8.4
     "@types/babel-plugin-tester": 9.0.3
-    "@types/babel__core": 7.1.14
+    "@types/babel__core": 7.1.15
     "@types/babel__traverse": 7.11.1
     "@types/node": 15.12.4
     "@types/tailwindcss": ^2.0.6
