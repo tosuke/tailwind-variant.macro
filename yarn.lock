@@ -846,7 +846,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel-plugin-tester@npm:9.0.3, @types/babel-plugin-tester@npm:^9.0.0":
+"@types/babel-plugin-tester@npm:9.0.4":
+  version: 9.0.4
+  resolution: "@types/babel-plugin-tester@npm:9.0.4"
+  dependencies:
+    "@types/babel__core": "*"
+    "@types/prettier": "*"
+  checksum: 7f4f237dfe0f1f5c1824205adb2f56ad72f2993e088bf22af2dd92cf0efa44f51c4dfa68d68257c229a4573742160d32747562fa8c525870cfebf81071ac1c03
+  languageName: node
+  linkType: hard
+
+"@types/babel-plugin-tester@npm:^9.0.0":
   version: 9.0.3
   resolution: "@types/babel-plugin-tester@npm:9.0.3"
   dependencies:
@@ -5268,7 +5278,7 @@ __metadata:
     "@babel/traverse": 7.14.7
     "@babel/types": 7.14.5
     "@types/babel-plugin-macros": 2.8.5
-    "@types/babel-plugin-tester": 9.0.3
+    "@types/babel-plugin-tester": 9.0.4
     "@types/babel__core": 7.1.15
     "@types/babel__traverse": 7.11.1
     "@types/node": 15.12.4
