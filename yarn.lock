@@ -5,7 +5,7 @@ __metadata:
   version: 4
   cacheKey: 7
 
-"@babel/cli@npm:^7.14.5":
+"@babel/cli@npm:7.14.5":
   version: 7.14.5
   resolution: "@babel/cli@npm:7.14.5"
   dependencies:
@@ -48,7 +48,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.14.6, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.14.6, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
   version: 7.14.6
   resolution: "@babel/core@npm:7.14.6"
   dependencies:
@@ -431,7 +431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.14.5":
+"@babel/preset-typescript@npm:7.14.5":
   version: 7.14.5
   resolution: "@babel/preset-typescript@npm:7.14.5"
   dependencies:
@@ -464,7 +464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.7.2":
+"@babel/traverse@npm:7.14.5, @babel/traverse@npm:^7.1.0, @babel/traverse@npm:^7.14.5, @babel/traverse@npm:^7.7.2":
   version: 7.14.5
   resolution: "@babel/traverse@npm:7.14.5"
   dependencies:
@@ -481,7 +481,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.14.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.8.3":
+"@babel/types@npm:7.14.5, @babel/types@npm:^7.0.0, @babel/types@npm:^7.14.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.8.3":
   version: 7.14.5
   resolution: "@babel/types@npm:7.14.5"
   dependencies:
@@ -811,7 +811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel-plugin-macros@npm:^2.8.4":
+"@types/babel-plugin-macros@npm:2.8.4":
   version: 2.8.4
   resolution: "@types/babel-plugin-macros@npm:2.8.4"
   dependencies:
@@ -820,7 +820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel-plugin-tester@npm:^9.0.0, @types/babel-plugin-tester@npm:^9.0.3":
+"@types/babel-plugin-tester@npm:9.0.3, @types/babel-plugin-tester@npm:^9.0.0":
   version: 9.0.3
   resolution: "@types/babel-plugin-tester@npm:9.0.3"
   dependencies:
@@ -830,7 +830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:*, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
+"@types/babel__core@npm:*, @types/babel__core@npm:7.1.14, @types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.14":
   version: 7.1.14
   resolution: "@types/babel__core@npm:7.1.14"
   dependencies:
@@ -862,7 +862,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__traverse@npm:*, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6, @types/babel__traverse@npm:^7.11.1":
+"@types/babel__traverse@npm:*, @types/babel__traverse@npm:7.11.1, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6":
   version: 7.11.1
   resolution: "@types/babel__traverse@npm:7.11.1"
   dependencies:
@@ -905,7 +905,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^15.12.4":
+"@types/node@npm:*, @types/node@npm:15.12.4":
   version: 15.12.4
   resolution: "@types/node@npm:15.12.4"
   checksum: 64b121a7e805379382aeb3eefed56c4c34f1ebf5e818ba2c732e43beebc4fbde20be438f3eaaffd8dba5062f0e0c9ae085127b7239906d170eda816885a6c508
@@ -1266,7 +1266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-tester@npm:^10.1.0":
+"babel-plugin-tester@npm:10.1.0":
   version: 10.1.0
   resolution: "babel-plugin-tester@npm:10.1.0"
   dependencies:
@@ -4456,7 +4456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.3.5":
+"postcss@npm:8.3.5, postcss@npm:^8.1.6, postcss@npm:^8.2.1":
   version: 8.3.5
   resolution: "postcss@npm:8.3.5"
   dependencies:
@@ -4474,7 +4474,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.1, prettier@npm:^2.3.1":
+"prettier@npm:2.3.1, prettier@npm:^2.0.1":
   version: 2.3.1
   resolution: "prettier@npm:2.3.1"
   bin:
@@ -5214,31 +5214,31 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "tailwind-variant.macro@workspace:."
   dependencies:
-    "@babel/cli": ^7.14.5
-    "@babel/core": ^7.14.6
-    "@babel/preset-typescript": ^7.14.5
-    "@babel/traverse": ^7.14.5
-    "@babel/types": ^7.14.5
-    "@types/babel-plugin-macros": ^2.8.4
-    "@types/babel-plugin-tester": ^9.0.3
-    "@types/babel__core": ^7.1.14
-    "@types/babel__traverse": ^7.11.1
-    "@types/node": ^15.12.4
+    "@babel/cli": 7.14.5
+    "@babel/core": 7.14.6
+    "@babel/preset-typescript": 7.14.5
+    "@babel/traverse": 7.14.5
+    "@babel/types": 7.14.5
+    "@types/babel-plugin-macros": 2.8.4
+    "@types/babel-plugin-tester": 9.0.3
+    "@types/babel__core": 7.1.14
+    "@types/babel__traverse": 7.11.1
+    "@types/node": 15.12.4
     "@types/tailwindcss": ^2.0.6
     babel-plugin-macros: ^3.1.0
-    babel-plugin-tester: ^10.1.0
+    babel-plugin-tester: 10.1.0
     jest: ^27.0.4
-    postcss: ^8.3.5
-    prettier: ^2.3.1
-    tailwindcss: ^2.2.2
-    ts-jest: ^27.0.3
-    typescript: ^4.3.4
+    postcss: 8.3.5
+    prettier: 2.3.1
+    tailwindcss: 2.2.2
+    ts-jest: 27.0.3
+    typescript: 4.3.4
   peerDependencies:
     tailwindcss: ^2.2.2
   languageName: unknown
   linkType: soft
 
-"tailwindcss@npm:^2.2.2":
+"tailwindcss@npm:2.2.2":
   version: 2.2.2
   resolution: "tailwindcss@npm:2.2.2"
   dependencies:
@@ -5408,7 +5408,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^27.0.3":
+"ts-jest@npm:27.0.3":
   version: 27.0.3
   resolution: "ts-jest@npm:27.0.3"
   dependencies:
@@ -5463,7 +5463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-typescript@^4.3.4:
+typescript@4.3.4:
   version: 4.3.4
   resolution: "typescript@npm:4.3.4"
   bin:
@@ -5473,7 +5473,7 @@ typescript@^4.3.4:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.4#builtin<compat/typescript>":
+"typescript@patch:typescript@4.3.4#builtin<compat/typescript>":
   version: 4.3.4
   resolution: "typescript@patch:typescript@npm%3A4.3.4#builtin<compat/typescript>::version=4.3.4&hash=ddfc1b"
   bin:
