@@ -3508,7 +3508,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.0.4":
+"jest@npm:27.0.4":
   version: 27.0.4
   resolution: "jest@npm:27.0.4"
   dependencies:
@@ -5227,7 +5227,7 @@ __metadata:
     "@types/tailwindcss": ^2.0.6
     babel-plugin-macros: ^3.1.0
     babel-plugin-tester: 10.1.0
-    jest: ^27.0.4
+    jest: 27.0.4
     postcss: 8.3.5
     prettier: 2.3.1
     tailwindcss: 2.2.2
