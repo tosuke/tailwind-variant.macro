@@ -1001,12 +1001,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__traverse@npm:*, @types/babel__traverse@npm:7.11.1, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6":
+"@types/babel__traverse@npm:*, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6":
   version: 7.11.1
   resolution: "@types/babel__traverse@npm:7.11.1"
   dependencies:
     "@babel/types": ^7.3.0
   checksum: 676150e00d1f6b535a3c53f9c22ae4abb3707abdbf71a9ebf200a8722fc0cd9b7c677165c0dea35616fed5af9f93b40aaa58ba56fd21bb2c843cd03c12419afd
+  languageName: node
+  linkType: hard
+
+"@types/babel__traverse@npm:7.14.2":
+  version: 7.14.2
+  resolution: "@types/babel__traverse@npm:7.14.2"
+  dependencies:
+    "@babel/types": ^7.3.0
+  checksum: 789c31dc1aa25697e5693ad45bcd6ca2b7e6b998bcc77b7d9bcba7004e4da0847e81701ca87edec162ef667a8973ea3655ee35d077cb3568c71d90939a8ef9d9
   languageName: node
   linkType: hard
 
@@ -5395,7 +5404,7 @@ __metadata:
     "@types/babel-plugin-macros": 2.8.5
     "@types/babel-plugin-tester": 9.0.4
     "@types/babel__core": 7.1.15
-    "@types/babel__traverse": 7.11.1
+    "@types/babel__traverse": 7.14.2
     "@types/node": 15.12.4
     "@types/tailwindcss": ^2.0.6
     babel-plugin-macros: ^3.1.0
