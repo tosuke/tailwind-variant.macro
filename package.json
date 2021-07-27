@@ -40,5 +40,8 @@
   },
   "peerDependencies": {
     "tailwindcss": "^2.2.2"
+  },
+  "resolutions": {
+    "@babel/types": "7.14.8"
   }
 }
