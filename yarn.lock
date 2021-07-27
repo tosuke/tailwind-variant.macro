@@ -4522,7 +4522,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.5, postcss@npm:^8.1.6, postcss@npm:^8.2.1":
+"postcss@npm:8.3.6":
+  version: 8.3.6
+  resolution: "postcss@npm:8.3.6"
+  dependencies:
+    colorette: ^1.2.2
+    nanoid: ^3.1.23
+    source-map-js: ^0.6.2
+  checksum: 515c26472861ce0f3b0a7945b9ac4732756d2aab6b12950137f72c7c6d90967136ba56e878815edcbf132c5643005dad1e9bbcb14139a948802af10245a8f6e3
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.1.6, postcss@npm:^8.2.1":
   version: 8.3.5
   resolution: "postcss@npm:8.3.5"
   dependencies:
@@ -5303,7 +5314,7 @@ __metadata:
     babel-plugin-macros: ^3.1.0
     babel-plugin-tester: 10.1.0
     jest: 27.0.6
-    postcss: 8.3.5
+    postcss: 8.3.6
     prettier: 2.3.2
     tailwindcss: 2.2.2
     ts-jest: 27.0.3
