@@ -80,5 +80,6 @@ export function collectVariantsAndParams(ctx: Context, nodePath: NodePath) {
       `${ctx.name} is only allowed in a call expression or tagged template literal`
     );
   };
-  return inner(nodePath.parentPath, []);
+  // `tw` is not a Program
+  return inner(nodePath.parentPath!, []);
 }
