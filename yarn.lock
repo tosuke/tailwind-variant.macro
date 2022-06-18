@@ -1615,7 +1615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-from@npm:1.x, buffer-from@npm:^1.0.0":
+"buffer-from@npm:^1.0.0":
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
   checksum: 540ceb79c4f5bfcadaabbc18324fa84c50dc52905084be7c03596a339cf5a88513bee6831ce9b36ddd046fab09257a7c80686e129d0559a0cfd141da196ad956
@@ -3538,6 +3538,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.memoize@npm:4.x":
+  version: 4.1.2
+  resolution: "lodash.memoize@npm:4.1.2"
+  checksum: 080c1095b7795b293a06078737550dc0c8138192cadbafb4e4b1303357d367ac589a1a570fad8de154175b008ca7b2b48d6a7f1755a143e13b764e20a7104080
+  languageName: node
+  linkType: hard
+
 "lodash.mergewith@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.mergewith@npm:4.6.2"
@@ -3559,7 +3566,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.x, lodash@npm:^4.17.21, lodash@npm:^4.7.0":
+"lodash@npm:^4.17.21, lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
@@ -3773,7 +3780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:1.x, mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
+"mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
   version: 1.0.4
   resolution: "mkdirp@npm:1.0.4"
   bin:
@@ -4831,7 +4838,7 @@ __metadata:
     postcss: 8.3.11
     prettier: 2.3.2
     tailwindcss: 2.2.2
-    ts-jest: 27.0.4
+    ts-jest: 27.1.5
     typescript: 4.3.5
   peerDependencies:
     tailwindcss: ^2.2.2
@@ -4977,23 +4984,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:27.0.4":
-  version: 27.0.4
-  resolution: "ts-jest@npm:27.0.4"
+"ts-jest@npm:27.1.5":
+  version: 27.1.5
+  resolution: "ts-jest@npm:27.1.5"
   dependencies:
     bs-logger: 0.x
-    buffer-from: 1.x
     fast-json-stable-stringify: 2.x
     jest-util: ^27.0.0
     json5: 2.x
-    lodash: 4.x
+    lodash.memoize: 4.x
     make-error: 1.x
-    mkdirp: 1.x
     semver: 7.x
     yargs-parser: 20.x
   peerDependencies:
     "@babel/core": ">=7.0.0-beta.0 <8"
-    "@types/jest": ^26.0.0
+    "@types/jest": ^27.0.0
     babel-jest: ">=27.0.0 <28"
     jest: ^27.0.0
     typescript: ">=3.8 <5.0"
@@ -5004,9 +5009,11 @@ __metadata:
       optional: true
     babel-jest:
       optional: true
+    esbuild:
+      optional: true
   bin:
     ts-jest: cli.js
-  checksum: 2891c2052f881e9350367ec0f978193d4268485496aa2613e45d6208f5809e7a04932105be38f3d1c016ff43d7699b7c7728728df6864ce22bc054aa0954af2f
+  checksum: e5026ec46afb9fe0ff6fe44335f64fd600c7001f3cf5f7eafc9259db481f40178bc66b29c7d4a0c1a7d14ccb4ec503b06040828bc97f7f3d38d987173a48c188
   languageName: node
   linkType: hard
 
