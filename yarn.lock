@@ -479,6 +479,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/parser@npm:^7.20.7":
+  version: 7.23.4
+  resolution: "@babel/parser@npm:7.23.4"
+  bin:
+    parser: ./bin/babel-parser.js
+  checksum: 24d06951019df4f7da2c66e4974ecff8c46ad3276e9f124add074e4fe15977155ee3b90419eac8d1b77bdefcb38d6c1e7150716dd17a624d2299ecb7f5b7ff9a
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-syntax-async-generators@npm:^7.8.4":
   version: 7.8.4
   resolution: "@babel/plugin-syntax-async-generators@npm:7.8.4"
@@ -1097,16 +1106,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:7.1.15":
-  version: 7.1.15
-  resolution: "@types/babel__core@npm:7.1.15"
+"@types/babel__core@npm:7.20.5":
+  version: 7.20.5
+  resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
-    "@babel/parser": ^7.1.0
-    "@babel/types": ^7.0.0
+    "@babel/parser": ^7.20.7
+    "@babel/types": ^7.20.7
     "@types/babel__generator": "*"
     "@types/babel__template": "*"
     "@types/babel__traverse": "*"
-  checksum: a9e93975a647b2037c624abffab43bdfa434eb3ffee343a94d649d44f802281ffd6044b8bcfe0b8e4a47d9c1759d4b6e6745b540cc8793d504f805adae9fcd52
+  checksum: 24189be7d31cf0142331a270a7a2c6c2bc21b6f2310e8c9162e5b5f5a74ea4d5e49da754f356152c7d4e3b353d782dafc78c5bd57c9b57a696b79ce9cc55b80b
   languageName: node
   linkType: hard
 
@@ -4821,7 +4830,7 @@ __metadata:
     "@babel/types": 7.16.0
     "@types/babel-plugin-macros": 2.8.5
     "@types/babel-plugin-tester": 9.0.4
-    "@types/babel__core": 7.1.15
+    "@types/babel__core": 7.20.5
     "@types/babel__traverse": 7.14.2
     "@types/node": 16.11.11
     "@types/tailwindcss": ^2.0.6
