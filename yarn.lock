@@ -3812,12 +3812,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.30":
-  version: 3.1.30
-  resolution: "nanoid@npm:3.1.30"
+"nanoid@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "nanoid@npm:3.3.7"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 440f685e9890bd96433cf6c01535165b1e9677ba4a5c4179e1a61612f0b4c428cc628425fe232038b93304d15b191892d7ced9503fa558d1296e4e95fe80a627
+  checksum: cf385d845762bbc9f71827889ccbfa828348d48919ef6745819f60cafa5df2f4ba45a20ffbd02d7a48dd87a4abfaf62b08e23e48fc8e0eba059b97bdd331b64c
   languageName: node
   linkType: hard
 
@@ -4188,14 +4188,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.11":
-  version: 8.3.11
-  resolution: "postcss@npm:8.3.11"
+"postcss@npm:8.4.38":
+  version: 8.4.38
+  resolution: "postcss@npm:8.4.38"
   dependencies:
-    nanoid: ^3.1.30
+    nanoid: ^3.3.7
     picocolors: ^1.0.0
-    source-map-js: ^0.6.2
-  checksum: fa1530f7e1817bcaf40b34db246d0c49e42daf12719abd4a3a1b5886491cca125af6b21ccdfc24a074ea9b6b73a6677e1478906adb732b2bd5208077a64473a6
+    source-map-js: ^1.2.0
+  checksum: 031fc3a3a28d84fab064738971f60b3ad23707d1c47225dc9caee59c6abc0a250ec20bfeebda1a7f650369d6800aa3adca149c9af0f3d38df66322761ee6f58f
   languageName: node
   linkType: hard
 
@@ -4609,6 +4609,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "source-map-js@npm:1.2.0"
+  checksum: 921a2790f5f8b7530955bf17e57bf8f722c6d9b4ed913042e2666850ce80cf0633c8710331afaaed973c5d8e5651654295db4fc86b6f31c0f6cbfe5b1fecc4af
+  languageName: node
+  linkType: hard
+
 "source-map-support@npm:^0.5.6":
   version: 0.5.19
   resolution: "source-map-support@npm:0.5.19"
@@ -4828,7 +4835,7 @@ __metadata:
     babel-plugin-macros: ^3.1.0
     babel-plugin-tester: 10.1.0
     jest: 27.1.0
-    postcss: 8.3.11
+    postcss: 8.4.38
     prettier: 2.3.2
     tailwindcss: 2.2.2
     ts-jest: 27.0.4
