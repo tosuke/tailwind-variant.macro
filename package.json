@@ -28,7 +28,7 @@
     "@types/node": "16.11.11",
     "babel-plugin-tester": "10.1.0",
     "jest": "27.1.0",
-    "postcss": "8.3.11",
+    "postcss": "8.4.47",
     "prettier": "2.3.2",
     "tailwindcss": "2.2.2",
     "ts-jest": "27.0.4",
