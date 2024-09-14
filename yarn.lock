@@ -3812,12 +3812,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.30":
-  version: 3.1.30
-  resolution: "nanoid@npm:3.1.30"
+"nanoid@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "nanoid@npm:3.3.7"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 440f685e9890bd96433cf6c01535165b1e9677ba4a5c4179e1a61612f0b4c428cc628425fe232038b93304d15b191892d7ced9503fa558d1296e4e95fe80a627
+  checksum: cf385d845762bbc9f71827889ccbfa828348d48919ef6745819f60cafa5df2f4ba45a20ffbd02d7a48dd87a4abfaf62b08e23e48fc8e0eba059b97bdd331b64c
   languageName: node
   linkType: hard
 
@@ -4095,6 +4095,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "picocolors@npm:1.1.0"
+  checksum: 8ffaa062d8b4eb512e6444cea3ead59a4fefa1adb3731f00c63c2914b0e81ecb22ac0b9db0de60acde956461d1242a5984d3cabb1fcb3cece07698d4a5bd915c
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3":
   version: 2.3.0
   resolution: "picomatch@npm:2.3.0"
@@ -4188,14 +4195,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.11":
-  version: 8.3.11
-  resolution: "postcss@npm:8.3.11"
+"postcss@npm:8.4.47":
+  version: 8.4.47
+  resolution: "postcss@npm:8.4.47"
   dependencies:
-    nanoid: ^3.1.30
-    picocolors: ^1.0.0
-    source-map-js: ^0.6.2
-  checksum: fa1530f7e1817bcaf40b34db246d0c49e42daf12719abd4a3a1b5886491cca125af6b21ccdfc24a074ea9b6b73a6677e1478906adb732b2bd5208077a64473a6
+    nanoid: ^3.3.7
+    picocolors: ^1.1.0
+    source-map-js: ^1.2.1
+  checksum: 06a79046912a74e92405a5344df46cee4d266a62afd551219a498f7105d4350f7f2141e4ca43b4bea8d97d55f0c30cdc627656e96bc4914681772d36c8a288cc
   languageName: node
   linkType: hard
 
@@ -4609,6 +4616,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "source-map-js@npm:1.2.1"
+  checksum: 728d8bd521c93d7a165fb7dfe20ae1038a4d780579498d21cdd353bcc59f2c27f2d4e390fa1825ee3977beed68868e395df79c14ca8a72a9c6fffdfb46a87eb6
+  languageName: node
+  linkType: hard
+
 "source-map-support@npm:^0.5.6":
   version: 0.5.19
   resolution: "source-map-support@npm:0.5.19"
@@ -4828,7 +4842,7 @@ __metadata:
     babel-plugin-macros: ^3.1.0
     babel-plugin-tester: 10.1.0
     jest: 27.1.0
-    postcss: 8.3.11
+    postcss: 8.4.47
     prettier: 2.3.2
     tailwindcss: 2.2.2
     ts-jest: 27.0.4
