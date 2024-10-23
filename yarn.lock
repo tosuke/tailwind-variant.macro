@@ -1179,10 +1179,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.11":
-  version: 16.11.11
-  resolution: "@types/node@npm:16.11.11"
-  checksum: 1e4d98cf027f6d98462d450f56211039f7677bacbb93a8fcec9ff319b037362487fe79d2cce2e6937a83beae1126a65a354858117322076b785b4da0926e0bd9
+"@types/node@npm:16.18.115":
+  version: 16.18.115
+  resolution: "@types/node@npm:16.18.115"
+  checksum: a680528d552364b4f6a18037194a80d77e0c7475f24c914ec7dca0fc9f558365322e305c098a18867197d04cb9652cd6cd308a631d15317c763b7a67ae4de5b6
   languageName: node
   linkType: hard
 
@@ -4823,7 +4823,7 @@ __metadata:
     "@types/babel-plugin-tester": 9.0.4
     "@types/babel__core": 7.1.15
     "@types/babel__traverse": 7.14.2
-    "@types/node": 16.11.11
+    "@types/node": 16.18.115
     "@types/tailwindcss": ^2.0.6
     babel-plugin-macros: ^3.1.0
     babel-plugin-tester: 10.1.0
